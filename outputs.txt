@@ -1,0 +1,267 @@
+==============================================================================
+Output #1:
+
+nuthatch.cs.umanitoba.ca 104% gprolog
+GNU Prolog 1.4.4 (64 bits)
+Compiled Jan 15 2014, 20:38:19 with gcc
+By Daniel Diaz
+Copyright (C) 1999-2013 Daniel Diaz
+| ?- [fix_computer].
+compiling /home/student/dingy345/3190/A3/fix_computer.pl for byte code...
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:54: warning: singleton variables [Rules] for solve/4
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:56-57: warning: singleton variables [Rules] for solve/4
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:59-60: warning: singleton variables [Rules] for solve/4
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:80-82: warning: singleton variables [Rules] for solve/4
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:84-88: warning: singleton variables [T] for solve/4
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:223: warning: singleton variables [A] for flag_if_known/1
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:231-233: warning: singleton variables [C] for respond_how/1
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:235-237: warning: singleton variables [C] for respond_how/1
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:239-240: warning: singleton variables [Goal] for respond_how/1
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:324-325: warning: singleton variables [C] for extract_body/2
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:331: warning: singleton variables [Proof,C] for extract_body/2
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:337: warning: singleton variables [Y] for retractm/1
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:338: warning: singleton variables [X] for retractm/1
+/home/student/dingy345/3190/A3/fix_computer.pl including exshell.pl:350: warning: singleton variables [Goal] for not/1
+/home/student/dingy345/3190/A3/fix_computer.pl compiled, 417 lines read - 39167 bytes written, 28 ms
+
+(4 ms) yes
+| ?- solve(fix_computer(Advice)).
+powers_on? n.
+power_cable_damage? how(bad_system(no_power)). 
+
+bad_system(no_power) CF = 90.0
+was proved using the rule
+
+IF       not(powers_on)     ***Known, Certainty = 100
+THEN     bad_system(no_power)
+CF   90
+
+
+not powers_on CF = 100
+
+powers_on was given. CF = -100
+
+
+
+power_cable_damage? n.
+logic_board_lights_on? y.
+
+Solved fix_computer(replace power button) With Certainty = 78.299999999999997
+
+Trace of reasoning to goal ? y.
+
+
+fix_computer(replace power button) CF = 78.299999999999997
+was proved using the rule
+
+IF       bad_component(power_button)     ***Known, Certainty = 78.299999999999997
+     AND fix(power_button,replace power button)     ***Known, Certainty = 100
+THEN     fix_computer(replace power button)
+CF   100
+
+
+
+bad_component(power_button) CF = 78.299999999999997
+was proved using the rule
+
+IF       bad_system(no_power)     ***Known, Certainty = 90.0
+     AND not(power_cable_damage)     ***Known, Certainty = 100
+     AND logic_board_lights_on     ***Known, Certainty = 100
+THEN     bad_component(power_button)
+CF   87
+
+
+
+bad_system(no_power) CF = 90.0
+was proved using the rule
+
+IF       not(powers_on)     ***Known, Certainty = 100
+THEN     bad_system(no_power)
+CF   90
+
+
+not powers_on CF = 100
+
+powers_on was given. CF = -100
+
+not power_cable_damage CF = 100
+
+power_cable_damage was given. CF = -100
+
+logic_board_lights_on was given. CF = 100
+
+fix(power_button,replace power button) is a fact, CF = 100
+
+
+Advice = 'replace power button' ? a
+
+(2 ms) no
+
+
+
+==============================================================================
+Output #2:
+
+| ?- solve(bad_system(bios_system)).
+powers_on? y. 
+
+(1 ms) no
+| ?- solve(fix_computer(Advice)).   
+powers_on? y.
+boots_to_login_page? y.
+safe_mode_success? how(bad_system(os_system)).
+
+bad_system(os_system) CF = 80.0
+was proved using the rule
+
+IF       powers_on     ***Known, Certainty = 100
+     AND boots_to_login_page     ***Known, Certainty = 100
+THEN     bad_system(os_system)
+CF   80
+
+
+powers_on was given. CF = 100
+
+boots_to_login_page was given. CF = 100
+
+
+
+safe_mode_success? y.
+troubleshoot_success? n.
+
+Solved fix_computer(reinstall Operate System) With Certainty = 48.0
+
+Trace of reasoning to goal ? y.
+
+
+fix_computer(reinstall Operate System) CF = 48.0
+was proved using the rule
+
+IF       bad_component(os)     ***Known, Certainty = 48.0
+     AND fix(os,reinstall Operate System)     ***Known, Certainty = 100
+THEN     fix_computer(reinstall Operate System)
+CF   100
+
+
+
+bad_component(os) CF = 48.0
+was proved using the rule
+
+IF       bad_system(os_system)     ***Known, Certainty = 80.0
+     AND safe_mode_success     ***Known, Certainty = 100
+     AND not(troubleshoot_success)     ***Known, Certainty = 100
+THEN     bad_component(os)
+CF   60
+
+
+
+bad_system(os_system) CF = 80.0
+was proved using the rule
+
+IF       powers_on     ***Known, Certainty = 100
+     AND boots_to_login_page     ***Known, Certainty = 100
+THEN     bad_system(os_system)
+CF   80
+
+
+powers_on was given. CF = 100
+
+boots_to_login_page was given. CF = 100
+
+safe_mode_success was given. CF = 100
+
+not troubleshoot_success CF = 100
+
+troubleshoot_success was given. CF = -100
+
+fix(os,reinstall Operate System) is a fact, CF = 100
+
+
+Advice = 'reinstall Operate System' ? a
+
+(2 ms) no
+
+
+==============================================================================
+Output #3:
+
+| ?- solve(fix_computer(Advice)).
+powers_on? y.
+boots_to_login_page? n.
+boots_to_BIOS? y.
+detect_hard_drive? how(bad_system(bios_system)).
+
+bad_system(bios_system) CF = 90.0
+was proved using the rule
+
+IF       powers_on     ***Known, Certainty = 100
+     AND not(boots_to_login_page)     ***Known, Certainty = 100
+     AND boots_to_BIOS     ***Known, Certainty = 100
+THEN     bad_system(bios_system)
+CF   90
+
+
+powers_on was given. CF = 100
+
+not boots_to_login_page CF = 100
+
+boots_to_login_page was given. CF = -100
+
+boots_to_BIOS was given. CF = 100
+
+
+
+detect_hard_drive? y.
+
+Solved fix_computer(reinstall Operate System) With Certainty = 63.0
+
+Trace of reasoning to goal ? y.
+
+
+fix_computer(reinstall Operate System) CF = 63.0
+was proved using the rule
+
+IF       bad_component(os)     ***Known, Certainty = 63.0
+     AND fix(os,reinstall Operate System)     ***Known, Certainty = 100
+THEN     fix_computer(reinstall Operate System)
+CF   100
+
+
+
+bad_component(os) CF = 63.0
+was proved using the rule
+
+IF       bad_system(bios_system)     ***Known, Certainty = 90.0
+     AND detect_hard_drive     ***Known, Certainty = 100
+THEN     bad_component(os)
+CF   70
+
+
+
+bad_system(bios_system) CF = 90.0
+was proved using the rule
+
+IF       powers_on     ***Known, Certainty = 100
+     AND not(boots_to_login_page)     ***Known, Certainty = 100
+     AND boots_to_BIOS     ***Known, Certainty = 100
+THEN     bad_system(bios_system)
+CF   90
+
+
+powers_on was given. CF = 100
+
+not boots_to_login_page CF = 100
+
+boots_to_login_page was given. CF = -100
+
+boots_to_BIOS was given. CF = 100
+
+detect_hard_drive was given. CF = 100
+
+fix(os,reinstall Operate System) is a fact, CF = 100
+
+
+Advice = 'reinstall Operate System' ? a
+
+(4 ms) no
+
